@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.7
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventario", "WindowsFormsApp1\Inventario.csproj", "{7CB80E14-5B5F-475E-B85F-2E9C21EF81DA}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Instalacion Inventario 0.1", "Instalacion Inventario 0.1\Instalacion Inventario 0.1.vdproj", "{CCF28BCE-7C3C-4B74-89B7-C7F93DA22AD7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7CB80E14-5B5F-475E-B85F-2E9C21EF81DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CB80E14-5B5F-475E-B85F-2E9C21EF81DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CB80E14-5B5F-475E-B85F-2E9C21EF81DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CB80E14-5B5F-475E-B85F-2E9C21EF81DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCF28BCE-7C3C-4B74-89B7-C7F93DA22AD7}.Debug|Any CPU.ActiveCfg = Debug
+		{CCF28BCE-7C3C-4B74-89B7-C7F93DA22AD7}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

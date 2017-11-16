@@ -1,0 +1,14 @@
+C:\Users\onelv\Documents\Visual Studio 2017\Projects\Pluralsight\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\Cajas.accdb
+C:\Users\onelv\Documents\Visual Studio 2017\Projects\Pluralsight\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\onelv\Documents\Visual Studio 2017\Projects\Pluralsight\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+C:\Users\onelv\Documents\Visual Studio 2017\Projects\Pluralsight\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\onelv\Documents\Visual Studio 2017\Projects\Pluralsight\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Inventario.resources
+C:\Users\onelv\Documents\Visual Studio 2017\Projects\Pluralsight\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\onelv\Documents\Visual Studio 2017\Projects\Pluralsight\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\Inventario.csproj.GenerateResource.Cache
+C:\Users\onelv\Documents\Visual Studio 2017\Projects\Pluralsight\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+C:\Users\onelv\Documents\Visual Studio 2017\Projects\Pluralsight\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\onelv\Documents\Visual Studio 2017\Projects\Pluralsight\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FRMagregarproducto.resources
+C:\Users\onelv\Documents\Visual Studio 2017\Projects\Pluralsight\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FRMproductos.resources
+C:\Users\onelv\Documents\Visual Studio 2017\Projects\Pluralsight\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FRMagregarcaja.resources
+C:\Users\onelv\Documents\Visual Studio 2017\Projects\Pluralsight\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\Inventario.csprojResolveAssemblyReference.cache
+C:\Users\onelv\Documents\Visual Studio 2017\Projects\Pluralsight\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\Inventario.csproj.CoreCompileInputs.cache

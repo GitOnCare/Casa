@@ -203,5 +203,11 @@ namespace WindowsFormsApp1
             Inventario frm = new Inventario();
             frm.Show();
         }
+
+        private void productosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FRMreporteubicacionproductos frm = new FRMreporteubicacionproductos();
+            frm.Show();
+        }
     }
 }

@@ -9,11 +9,12 @@
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="CajasConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="CajasConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        facturas_enc.fecha, facturas_enc.num_factura, facturas_enc.nombre_cliente, facturas_enc.cedula, facturas_enc.estado, facturas_enc.fecha_vencimiento, facturas_enc.total_general, facturas_enc.total_descuento, 
-                         facturas_enc.cod_cliente, productos.referencia, productos.descripcion, facturas_det.cantidad, facturas_det.precio, facturas_det.sub_total, clientes.direccion, clientes.ciudad, facturas_enc.usuario
+                    <CommandText>SELECT        facturas_enc.fecha, facturas_enc.num_factura, facturas_enc.nombre_cliente, facturas_enc.cedula, facturas_enc.estado, facturas_enc.fecha_vencimiento, 
+                         facturas_enc.total_general, facturas_enc.total_descuento, facturas_enc.cod_cliente, productos.referencia, productos.descripcion, facturas_det.cantidad, 
+                         facturas_det.precio, facturas_det.sub_total, clientes.direccion, clientes.ciudad, facturas_enc.usuario, clientes.telefono1
 FROM            (((facturas_enc INNER JOIN
                          facturas_det ON facturas_enc.num_factura = facturas_det.num_factura) INNER JOIN
                          clientes ON facturas_enc.cod_cliente = clientes.cod_cliente) INNER JOIN
@@ -41,18 +42,20 @@ FROM            (((facturas_enc INNER JOIN
               <Mapping SourceColumn="direccion" DataSetColumn="direccion" />
               <Mapping SourceColumn="ciudad" DataSetColumn="ciudad" />
               <Mapping SourceColumn="usuario" DataSetColumn="usuario" />
+              <Mapping SourceColumn="telefono1" DataSetColumn="telefono1" />
             </Mappings>
             <Sources>
               <DbSource ConnectionRef="CajasConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT        facturas_enc.fecha, facturas_enc.num_factura, facturas_enc.nombre_cliente, facturas_enc.cedula, facturas_enc.estado, facturas_enc.fecha_vencimiento, facturas_enc.total_general, facturas_enc.total_descuento, 
-                         facturas_enc.cod_cliente, productos.referencia, productos.descripcion, facturas_det.cantidad, facturas_det.precio, facturas_det.sub_total, clientes.direccion, clientes.ciudad, facturas_enc.usuario
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        facturas_enc.fecha, facturas_enc.num_factura, facturas_enc.nombre_cliente, facturas_enc.cedula, facturas_enc.estado, facturas_enc.fecha_vencimiento, 
+                         facturas_enc.total_general, facturas_enc.total_descuento, facturas_enc.cod_cliente, productos.referencia, productos.descripcion, facturas_det.cantidad, 
+                         facturas_det.precio, facturas_det.sub_total, clientes.direccion, clientes.ciudad, facturas_enc.usuario, clientes.telefono1
 FROM            (((facturas_enc INNER JOIN
                          facturas_det ON facturas_enc.num_factura = facturas_det.num_factura) INNER JOIN
                          clientes ON facturas_enc.cod_cliente = clientes.cod_cliente) INNER JOIN
                          productos ON facturas_det.cod_articulo = productos.cod_producto)
-WHERE        (facturas_enc.num_factura=?)</CommandText>
+WHERE        (facturas_enc.num_factura = ?)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="num_factura" DataSourceName="facturas_enc" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="num_factura" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="num_factura" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
@@ -69,7 +72,7 @@ WHERE        (facturas_enc.num_factura=?)</CommandText>
   <xs:element name="FacturasDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="FacturasDataSet" msprop:Generator_UserDSName="FacturasDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="fecha" msprop:Generator_ColumnVarNameInTable="columnfecha" msprop:Generator_ColumnPropNameInRow="fecha" msprop:Generator_ColumnPropNameInTable="fechaColumn" msprop:Generator_UserColumnName="fecha" type="xs:dateTime" minOccurs="0" />
@@ -131,6 +134,13 @@ WHERE        (facturas_enc.num_factura=?)</CommandText>
                 </xs:simpleType>
               </xs:element>
               <xs:element name="usuario" msprop:Generator_ColumnVarNameInTable="columnusuario" msprop:Generator_ColumnPropNameInRow="usuario" msprop:Generator_ColumnPropNameInTable="usuarioColumn" msprop:Generator_UserColumnName="usuario" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="telefono1" msprop:Generator_ColumnVarNameInTable="columntelefono1" msprop:Generator_ColumnPropNameInRow="telefono1" msprop:Generator_ColumnPropNameInTable="telefono1Column" msprop:Generator_UserColumnName="telefono1" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />

@@ -209,5 +209,11 @@ namespace WindowsFormsApp1
             FRMreporteubicacionproductos frm = new FRMreporteubicacionproductos();
             frm.Show();
         }
+
+        private void facturasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FRMconsultafactura frm = new FRMconsultafactura();
+            frm.Show();
+        }
     }
 }

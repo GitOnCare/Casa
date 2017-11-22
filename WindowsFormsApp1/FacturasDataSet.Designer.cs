@@ -313,6 +313,8 @@ namespace WindowsFormsApp1 {
             
             private global::System.Data.DataColumn columnusuario;
             
+            private global::System.Data.DataColumn columntelefono1;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public DataTable1DataTable() {
@@ -484,6 +486,14 @@ namespace WindowsFormsApp1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn telefono1Column {
+                get {
+                    return this.columntelefono1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -536,7 +546,8 @@ namespace WindowsFormsApp1 {
                         decimal sub_total, 
                         string direccion, 
                         string ciudad, 
-                        string usuario) {
+                        string usuario, 
+                        string telefono1) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         fecha,
@@ -555,7 +566,8 @@ namespace WindowsFormsApp1 {
                         sub_total,
                         direccion,
                         ciudad,
-                        usuario};
+                        usuario,
+                        telefono1};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
                 return rowDataTable1Row;
@@ -595,6 +607,7 @@ namespace WindowsFormsApp1 {
                 this.columndireccion = base.Columns["direccion"];
                 this.columnciudad = base.Columns["ciudad"];
                 this.columnusuario = base.Columns["usuario"];
+                this.columntelefono1 = base.Columns["telefono1"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -634,6 +647,8 @@ namespace WindowsFormsApp1 {
                 base.Columns.Add(this.columnciudad);
                 this.columnusuario = new global::System.Data.DataColumn("usuario", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnusuario);
+                this.columntelefono1 = new global::System.Data.DataColumn("telefono1", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntelefono1);
                 this.columnnombre_cliente.MaxLength = 80;
                 this.columncedula.MaxLength = 50;
                 this.columnestado.MaxLength = 50;
@@ -642,6 +657,7 @@ namespace WindowsFormsApp1 {
                 this.columndireccion.MaxLength = 255;
                 this.columnciudad.MaxLength = 50;
                 this.columnusuario.MaxLength = 50;
+                this.columntelefono1.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1056,6 +1072,22 @@ namespace WindowsFormsApp1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string telefono1 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.telefono1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'telefono1\' de la tabla \'DataTable1\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.telefono1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsfechaNull() {
                 return this.IsNull(this.tableDataTable1.fechaColumn);
             }
@@ -1257,6 +1289,18 @@ namespace WindowsFormsApp1 {
             public void SetusuarioNull() {
                 this[this.tableDataTable1.usuarioColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Istelefono1Null() {
+                return this.IsNull(this.tableDataTable1.telefono1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Settelefono1Null() {
+                this[this.tableDataTable1.telefono1Column] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -1435,6 +1479,7 @@ namespace WindowsFormsApp1.FacturasDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("direccion", "direccion");
             tableMapping.ColumnMappings.Add("ciudad", "ciudad");
             tableMapping.ColumnMappings.Add("usuario", "usuario");
+            tableMapping.ColumnMappings.Add("telefono1", "telefono1");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -1451,8 +1496,9 @@ namespace WindowsFormsApp1.FacturasDataSetTableAdapters {
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[2];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        facturas_enc.fecha, facturas_enc.num_factura, facturas_enc.nombre_cliente, facturas_enc.cedula, facturas_enc.estado, facturas_enc.fecha_vencimiento, facturas_enc.total_general, facturas_enc.total_descuento, 
-                         facturas_enc.cod_cliente, productos.referencia, productos.descripcion, facturas_det.cantidad, facturas_det.precio, facturas_det.sub_total, clientes.direccion, clientes.ciudad, facturas_enc.usuario
+            this._commandCollection[0].CommandText = @"SELECT        facturas_enc.fecha, facturas_enc.num_factura, facturas_enc.nombre_cliente, facturas_enc.cedula, facturas_enc.estado, facturas_enc.fecha_vencimiento, 
+                         facturas_enc.total_general, facturas_enc.total_descuento, facturas_enc.cod_cliente, productos.referencia, productos.descripcion, facturas_det.cantidad, 
+                         facturas_det.precio, facturas_det.sub_total, clientes.direccion, clientes.ciudad, facturas_enc.usuario, clientes.telefono1
 FROM            (((facturas_enc INNER JOIN
                          facturas_det ON facturas_enc.num_factura = facturas_det.num_factura) INNER JOIN
                          clientes ON facturas_enc.cod_cliente = clientes.cod_cliente) INNER JOIN
@@ -1460,13 +1506,14 @@ FROM            (((facturas_enc INNER JOIN
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT        facturas_enc.fecha, facturas_enc.num_factura, facturas_enc.nombre_cliente, facturas_enc.cedula, facturas_enc.estado, facturas_enc.fecha_vencimiento, facturas_enc.total_general, facturas_enc.total_descuento, 
-                         facturas_enc.cod_cliente, productos.referencia, productos.descripcion, facturas_det.cantidad, facturas_det.precio, facturas_det.sub_total, clientes.direccion, clientes.ciudad, facturas_enc.usuario
+            this._commandCollection[1].CommandText = @"SELECT        facturas_enc.fecha, facturas_enc.num_factura, facturas_enc.nombre_cliente, facturas_enc.cedula, facturas_enc.estado, facturas_enc.fecha_vencimiento, 
+                         facturas_enc.total_general, facturas_enc.total_descuento, facturas_enc.cod_cliente, productos.referencia, productos.descripcion, facturas_det.cantidad, 
+                         facturas_det.precio, facturas_det.sub_total, clientes.direccion, clientes.ciudad, facturas_enc.usuario, clientes.telefono1
 FROM            (((facturas_enc INNER JOIN
                          facturas_det ON facturas_enc.num_factura = facturas_det.num_factura) INNER JOIN
                          clientes ON facturas_enc.cod_cliente = clientes.cod_cliente) INNER JOIN
                          productos ON facturas_det.cod_articulo = productos.cod_producto)
-WHERE        (facturas_enc.num_factura=?)";
+WHERE        (facturas_enc.num_factura = ?)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("num_factura", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "num_factura", global::System.Data.DataRowVersion.Current, false, null));
         }

@@ -46,6 +46,7 @@
             this.verCajasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.facturasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvproductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvcajadelproducto)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -195,20 +196,21 @@
             // agregarToolStripMenuItem
             // 
             this.agregarToolStripMenuItem.Name = "agregarToolStripMenuItem";
-            this.agregarToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.agregarToolStripMenuItem.Size = new System.Drawing.Size(145, 26);
             this.agregarToolStripMenuItem.Text = "Agregar...";
             // 
             // verCajasToolStripMenuItem
             // 
             this.verCajasToolStripMenuItem.Name = "verCajasToolStripMenuItem";
-            this.verCajasToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.verCajasToolStripMenuItem.Size = new System.Drawing.Size(145, 26);
             this.verCajasToolStripMenuItem.Text = "Ver Cajas";
             this.verCajasToolStripMenuItem.Click += new System.EventHandler(this.verCajasToolStripMenuItem_Click);
             // 
             // reportesToolStripMenuItem
             // 
             this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.productosToolStripMenuItem});
+            this.productosToolStripMenuItem,
+            this.facturasToolStripMenuItem});
             this.reportesToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
             this.reportesToolStripMenuItem.Size = new System.Drawing.Size(84, 25);
@@ -220,6 +222,13 @@
             this.productosToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
             this.productosToolStripMenuItem.Text = "Productos";
             this.productosToolStripMenuItem.Click += new System.EventHandler(this.productosToolStripMenuItem_Click);
+            // 
+            // facturasToolStripMenuItem
+            // 
+            this.facturasToolStripMenuItem.Name = "facturasToolStripMenuItem";
+            this.facturasToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.facturasToolStripMenuItem.Text = "Facturas";
+            this.facturasToolStripMenuItem.Click += new System.EventHandler(this.facturasToolStripMenuItem_Click);
             // 
             // FRMproductos
             // 
@@ -263,5 +272,6 @@
         private System.Windows.Forms.ToolStripMenuItem verCajasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem productosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem facturasToolStripMenuItem;
     }
 }

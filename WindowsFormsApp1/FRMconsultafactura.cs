@@ -20,9 +20,7 @@ namespace WindowsFormsApp1
         private void FRMconsultafactura_Load(object sender, EventArgs e)
         {
             // TODO: esta línea de código carga datos en la tabla 'CajasDataSet.reporteubicacion' Puede moverla o quitarla según sea necesario.
-            this.DataTable1TableAdapter.Fill(this.FacturasDataSet.DataTable1);
-
-            this.reportViewer1.RefreshReport();
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -30,6 +28,7 @@ namespace WindowsFormsApp1
             try
             {
                 this.DataTable1TableAdapter.FillBy(this.FacturasDataSet.DataTable1, new System.Nullable<int>(((int)(System.Convert.ChangeType(textBox1.Text, typeof(int))))));
+                this.reportViewer1.RefreshReport();
             }
             catch (System.Exception ex)
             {

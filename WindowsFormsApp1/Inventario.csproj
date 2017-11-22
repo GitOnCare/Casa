@@ -74,6 +74,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CajasDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="FacturasDataSet.cs">
+      <DependentUpon>FacturasDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="FacturasDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

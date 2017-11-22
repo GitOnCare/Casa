@@ -215,7 +215,7 @@
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="CajasConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="CajasConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>Select cajas.caja, ubicacion.descripcion, cajas.volumen from  cajas, ubicacion where cajas.id_ubicacion=ubicacion.id_ubicacion order by ubicacion.descripcion desc, cajas.caja</CommandText>
@@ -230,7 +230,7 @@
               <Mapping SourceColumn="volumen" DataSetColumn="volumen" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="CajasConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByUbicacionTaller" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByUbicacionTaller" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByUbicacionTaller">
+              <DbSource ConnectionRef="CajasConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByUbicacionTaller" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByUbicacionTaller" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByUbicacionTaller">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>Select cajas.caja, ubicacion.descripcion, cajas.volumen from  cajas, ubicacion where cajas.id_ubicacion=ubicacion.id_ubicacion and ubicacion.descripcion="Taller" order by ubicacion.descripcion desc, cajas.caja</CommandText>
@@ -240,6 +240,30 @@
               </DbSource>
             </Sources>
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="reporteubicacionTableAdapter" GeneratorDataComponentClassName="reporteubicacionTableAdapter" Name="reporteubicacion" UserDataComponentName="reporteubicacionTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="CajasConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        productos.referencia, productos.descripcion, ubicacion.descripcion AS Expr1, cajas.caja
+FROM            (((productos INNER JOIN
+                         relacioncp ON productos.cod_producto = relacioncp.cod_producto) INNER JOIN
+                         cajas ON relacioncp.id_caja = cajas.id_caja) INNER JOIN
+                         ubicacion ON relacioncp.id_ubicacion = ubicacion.id_ubicacion)
+ORDER BY productos.descripcion</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="referencia" DataSetColumn="referencia" />
+              <Mapping SourceColumn="descripcion" DataSetColumn="descripcion" />
+              <Mapping SourceColumn="Expr1" DataSetColumn="Expr1" />
+              <Mapping SourceColumn="caja" DataSetColumn="caja" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -248,7 +272,7 @@
   <xs:element name="CajasDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="CajasDataSet" msprop:Generator_UserDSName="CajasDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="cajas" msprop:Generator_TableClassName="cajasDataTable" msprop:Generator_TableVarName="tablecajas" msprop:Generator_TablePropName="cajas" msprop:Generator_RowDeletingName="cajasRowDeleting" msprop:Generator_RowChangingName="cajasRowChanging" msprop:Generator_RowEvHandlerName="cajasRowChangeEventHandler" msprop:Generator_RowDeletedName="cajasRowDeleted" msprop:Generator_UserTableName="cajas" msprop:Generator_RowChangedName="cajasRowChanged" msprop:Generator_RowEvArgName="cajasRowChangeEvent" msprop:Generator_RowClassName="cajasRow">
+        <xs:element name="cajas" msprop:Generator_TableClassName="cajasDataTable" msprop:Generator_TableVarName="tablecajas" msprop:Generator_RowChangedName="cajasRowChanged" msprop:Generator_TablePropName="cajas" msprop:Generator_RowDeletingName="cajasRowDeleting" msprop:Generator_RowChangingName="cajasRowChanging" msprop:Generator_RowEvHandlerName="cajasRowChangeEventHandler" msprop:Generator_RowDeletedName="cajasRowDeleted" msprop:Generator_RowClassName="cajasRow" msprop:Generator_UserTableName="cajas" msprop:Generator_RowEvArgName="cajasRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="caja" msprop:Generator_ColumnVarNameInTable="columncaja" msprop:Generator_ColumnPropNameInRow="caja" msprop:Generator_ColumnPropNameInTable="cajaColumn" msprop:Generator_UserColumnName="caja" type="xs:int" minOccurs="0" />
@@ -258,7 +282,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="productos" msprop:Generator_TableClassName="productosDataTable" msprop:Generator_TableVarName="tableproductos" msprop:Generator_TablePropName="productos" msprop:Generator_RowDeletingName="productosRowDeleting" msprop:Generator_RowChangingName="productosRowChanging" msprop:Generator_RowEvHandlerName="productosRowChangeEventHandler" msprop:Generator_RowDeletedName="productosRowDeleted" msprop:Generator_UserTableName="productos" msprop:Generator_RowChangedName="productosRowChanged" msprop:Generator_RowEvArgName="productosRowChangeEvent" msprop:Generator_RowClassName="productosRow">
+        <xs:element name="productos" msprop:Generator_TableClassName="productosDataTable" msprop:Generator_TableVarName="tableproductos" msprop:Generator_RowChangedName="productosRowChanged" msprop:Generator_TablePropName="productos" msprop:Generator_RowDeletingName="productosRowDeleting" msprop:Generator_RowChangingName="productosRowChanging" msprop:Generator_RowEvHandlerName="productosRowChangeEventHandler" msprop:Generator_RowDeletedName="productosRowDeleted" msprop:Generator_RowClassName="productosRow" msprop:Generator_UserTableName="productos" msprop:Generator_RowEvArgName="productosRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id_producto" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId_producto" msprop:Generator_ColumnPropNameInRow="Id_producto" msprop:Generator_ColumnPropNameInTable="Id_productoColumn" msprop:Generator_UserColumnName="Id_producto" type="xs:int" />
@@ -282,7 +306,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="relacion_producto_caja" msprop:Generator_TableClassName="relacion_producto_cajaDataTable" msprop:Generator_TableVarName="tablerelacion_producto_caja" msprop:Generator_TablePropName="relacion_producto_caja" msprop:Generator_RowDeletingName="relacion_producto_cajaRowDeleting" msprop:Generator_RowChangingName="relacion_producto_cajaRowChanging" msprop:Generator_RowEvHandlerName="relacion_producto_cajaRowChangeEventHandler" msprop:Generator_RowDeletedName="relacion_producto_cajaRowDeleted" msprop:Generator_UserTableName="relacion_producto_caja" msprop:Generator_RowChangedName="relacion_producto_cajaRowChanged" msprop:Generator_RowEvArgName="relacion_producto_cajaRowChangeEvent" msprop:Generator_RowClassName="relacion_producto_cajaRow">
+        <xs:element name="relacion_producto_caja" msprop:Generator_TableClassName="relacion_producto_cajaDataTable" msprop:Generator_TableVarName="tablerelacion_producto_caja" msprop:Generator_RowChangedName="relacion_producto_cajaRowChanged" msprop:Generator_TablePropName="relacion_producto_caja" msprop:Generator_RowDeletingName="relacion_producto_cajaRowDeleting" msprop:Generator_RowChangingName="relacion_producto_cajaRowChanging" msprop:Generator_RowEvHandlerName="relacion_producto_cajaRowChangeEventHandler" msprop:Generator_RowDeletedName="relacion_producto_cajaRowDeleted" msprop:Generator_RowClassName="relacion_producto_cajaRow" msprop:Generator_UserTableName="relacion_producto_caja" msprop:Generator_RowEvArgName="relacion_producto_cajaRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_producto" msprop:Generator_ColumnVarNameInTable="columnid_producto" msprop:Generator_ColumnPropNameInRow="id_producto" msprop:Generator_ColumnPropNameInTable="id_productoColumn" msprop:Generator_UserColumnName="id_producto" type="xs:int" minOccurs="0" />
@@ -290,7 +314,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ubicacion" msprop:Generator_TableClassName="ubicacionDataTable" msprop:Generator_TableVarName="tableubicacion" msprop:Generator_TablePropName="ubicacion" msprop:Generator_RowDeletingName="ubicacionRowDeleting" msprop:Generator_RowChangingName="ubicacionRowChanging" msprop:Generator_RowEvHandlerName="ubicacionRowChangeEventHandler" msprop:Generator_RowDeletedName="ubicacionRowDeleted" msprop:Generator_UserTableName="ubicacion" msprop:Generator_RowChangedName="ubicacionRowChanged" msprop:Generator_RowEvArgName="ubicacionRowChangeEvent" msprop:Generator_RowClassName="ubicacionRow">
+        <xs:element name="ubicacion" msprop:Generator_TableClassName="ubicacionDataTable" msprop:Generator_TableVarName="tableubicacion" msprop:Generator_RowChangedName="ubicacionRowChanged" msprop:Generator_TablePropName="ubicacion" msprop:Generator_RowDeletingName="ubicacionRowDeleting" msprop:Generator_RowChangingName="ubicacionRowChanging" msprop:Generator_RowEvHandlerName="ubicacionRowChangeEventHandler" msprop:Generator_RowDeletedName="ubicacionRowDeleted" msprop:Generator_RowClassName="ubicacionRow" msprop:Generator_UserTableName="ubicacion" msprop:Generator_RowEvArgName="ubicacionRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_ubicacion" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid_ubicacion" msprop:Generator_ColumnPropNameInRow="id_ubicacion" msprop:Generator_ColumnPropNameInTable="id_ubicacionColumn" msprop:Generator_UserColumnName="id_ubicacion" type="xs:int" />
@@ -304,7 +328,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="caja" msprop:Generator_ColumnVarNameInTable="columncaja" msprop:Generator_ColumnPropNameInRow="caja" msprop:Generator_ColumnPropNameInTable="cajaColumn" msprop:Generator_UserColumnName="caja" type="xs:int" minOccurs="0" />
@@ -316,6 +340,40 @@
                 </xs:simpleType>
               </xs:element>
               <xs:element name="volumen" msprop:Generator_ColumnVarNameInTable="columnvolumen" msprop:Generator_ColumnPropNameInRow="volumen" msprop:Generator_ColumnPropNameInTable="volumenColumn" msprop:Generator_UserColumnName="volumen" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="reporteubicacion" msprop:Generator_TableClassName="reporteubicacionDataTable" msprop:Generator_TableVarName="tablereporteubicacion" msprop:Generator_TablePropName="reporteubicacion" msprop:Generator_RowDeletingName="reporteubicacionRowDeleting" msprop:Generator_RowChangingName="reporteubicacionRowChanging" msprop:Generator_RowEvHandlerName="reporteubicacionRowChangeEventHandler" msprop:Generator_RowDeletedName="reporteubicacionRowDeleted" msprop:Generator_UserTableName="reporteubicacion" msprop:Generator_RowChangedName="reporteubicacionRowChanged" msprop:Generator_RowEvArgName="reporteubicacionRowChangeEvent" msprop:Generator_RowClassName="reporteubicacionRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="referencia" msprop:Generator_ColumnVarNameInTable="columnreferencia" msprop:Generator_ColumnPropNameInRow="referencia" msprop:Generator_ColumnPropNameInTable="referenciaColumn" msprop:Generator_UserColumnName="referencia" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="descripcion" msprop:Generator_ColumnVarNameInTable="columndescripcion" msprop:Generator_ColumnPropNameInRow="descripcion" msprop:Generator_ColumnPropNameInTable="descripcionColumn" msprop:Generator_UserColumnName="descripcion" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Expr1" msprop:Generator_ColumnVarNameInTable="columnExpr1" msprop:Generator_ColumnPropNameInRow="Expr1" msprop:Generator_ColumnPropNameInTable="Expr1Column" msprop:Generator_UserColumnName="Expr1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="caja" msprop:Generator_ColumnVarNameInTable="columncaja" msprop:Generator_ColumnPropNameInRow="caja" msprop:Generator_ColumnPropNameInTable="cajaColumn" msprop:Generator_UserColumnName="caja" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -336,9 +394,9 @@
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="ubicacioncajas" msdata:parent="ubicacion" msdata:child="cajas" msdata:parentkey="id_ubicacion" msdata:childkey="id_ubicacion" msprop:Generator_UserChildTable="cajas" msprop:Generator_ChildPropName="GetcajasRows" msprop:Generator_UserRelationName="ubicacioncajas" msprop:Generator_RelationVarName="relationubicacioncajas" msprop:Generator_UserParentTable="ubicacion" msprop:Generator_ParentPropName="ubicacionRow" />
-      <msdata:Relationship name="cajasrelacion_producto_caja" msdata:parent="cajas" msdata:child="relacion_producto_caja" msdata:parentkey="id_caja" msdata:childkey="id_caja" msprop:Generator_UserChildTable="relacion_producto_caja" msprop:Generator_ChildPropName="Getrelacion_producto_cajaRows" msprop:Generator_UserRelationName="cajasrelacion_producto_caja" msprop:Generator_ParentPropName="cajasRow" msprop:Generator_RelationVarName="relationcajasrelacion_producto_caja" msprop:Generator_UserParentTable="cajas" />
-      <msdata:Relationship name="productosrelacion_producto_caja" msdata:parent="productos" msdata:child="relacion_producto_caja" msdata:parentkey="Id_producto" msdata:childkey="id_producto" msprop:Generator_UserChildTable="relacion_producto_caja" msprop:Generator_ChildPropName="Getrelacion_producto_cajaRows" msprop:Generator_UserRelationName="productosrelacion_producto_caja" msprop:Generator_ParentPropName="productosRow" msprop:Generator_RelationVarName="relationproductosrelacion_producto_caja" msprop:Generator_UserParentTable="productos" />
+      <msdata:Relationship name="ubicacioncajas" msdata:parent="ubicacion" msdata:child="cajas" msdata:parentkey="id_ubicacion" msdata:childkey="id_ubicacion" msprop:Generator_UserChildTable="cajas" msprop:Generator_ChildPropName="GetcajasRows" msprop:Generator_UserRelationName="ubicacioncajas" msprop:Generator_ParentPropName="ubicacionRow" msprop:Generator_RelationVarName="relationubicacioncajas" msprop:Generator_UserParentTable="ubicacion" />
+      <msdata:Relationship name="cajasrelacion_producto_caja" msdata:parent="cajas" msdata:child="relacion_producto_caja" msdata:parentkey="id_caja" msdata:childkey="id_caja" msprop:Generator_UserChildTable="relacion_producto_caja" msprop:Generator_ChildPropName="Getrelacion_producto_cajaRows" msprop:Generator_UserRelationName="cajasrelacion_producto_caja" msprop:Generator_RelationVarName="relationcajasrelacion_producto_caja" msprop:Generator_UserParentTable="cajas" msprop:Generator_ParentPropName="cajasRow" />
+      <msdata:Relationship name="productosrelacion_producto_caja" msdata:parent="productos" msdata:child="relacion_producto_caja" msdata:parentkey="Id_producto" msdata:childkey="id_producto" msprop:Generator_UserChildTable="relacion_producto_caja" msprop:Generator_ChildPropName="Getrelacion_producto_cajaRows" msprop:Generator_UserRelationName="productosrelacion_producto_caja" msprop:Generator_RelationVarName="relationproductosrelacion_producto_caja" msprop:Generator_UserParentTable="productos" msprop:Generator_ParentPropName="productosRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

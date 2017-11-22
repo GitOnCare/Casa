@@ -136,3 +136,4 @@ C:\Users\onelv\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\Inventario.csproj.Gen
 C:\Users\onelv\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\Inventario.csproj.CoreCompileInputs.cache
 C:\Users\onelv\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 C:\Users\onelv\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\onelv\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FRMconsultafactura.resources

@@ -91,6 +91,12 @@
     <Compile Include="FRMagregarproductos.Designer.cs">
       <DependentUpon>FRMagregarproductos.cs</DependentUpon>
     </Compile>
+    <Compile Include="FRMconsultafactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRMconsultafactura.Designer.cs">
+      <DependentUpon>FRMconsultafactura.cs</DependentUpon>
+    </Compile>
     <Compile Include="FRMproductos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +124,9 @@
     <EmbeddedResource Include="FRMagregarproductos.resx">
       <DependentUpon>FRMagregarproductos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FRMconsultafactura.resx">
+      <DependentUpon>FRMconsultafactura.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FRMproductos.resx">
       <DependentUpon>FRMproductos.cs</DependentUpon>
     </EmbeddedResource>
@@ -137,6 +146,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Report2.rdlc" />
+    <EmbeddedResource Include="Reportefactura.rdlc" />
     <None Include="CajasDataSet.xsc">
       <DependentUpon>CajasDataSet.xsd</DependentUpon>
     </None>

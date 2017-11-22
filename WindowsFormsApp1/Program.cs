@@ -18,7 +18,7 @@ namespace WindowsFormsApp1
             
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FRMproductos());
+            Application.Run(new FRMconsultafactura());
         }
     }
 }

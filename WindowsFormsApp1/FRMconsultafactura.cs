@@ -19,7 +19,7 @@ namespace WindowsFormsApp1
 
         private void FRMconsultafactura_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'CajasDataSet.reporteubicacion' Puede moverla o quitarla según sea necesario.
+            this.reportViewer1.PrinterSettings.DefaultPageSettings.Margins = new System.Drawing.Printing.Margins(0, 0, 0, 0);
            
         }
 

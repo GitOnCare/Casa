@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,6 +24,8 @@ namespace WindowsFormsApp1
         
         DataTable Productos2 = new DataTable();
         DataTable Cajas = new DataTable();
+        string direccionfotos = "\\\\Caja-pc\\c\\GPLUS1.0\\imagenes\\";
+
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             
@@ -97,7 +100,23 @@ namespace WindowsFormsApp1
             Obtener_ubicacion_producto(Cajas);
             dgvcajadelproducto.DataSource = Cajas;
             dgvcajadelproducto.Columns[0].Visible = false;
+            imagenproducto.Image = null;
+            string codproducto = dgvproductos.CurrentRow.Cells["Código"].Value.ToString();
+            try
+            {
+                Image imagen= Image.FromFile(@"\\\\CAJA-PC\\c\\GPLUS1.0\\imagenes\\" + codproducto + ".jpg");
+                Bitmap bmimagen = new Bitmap(imagen);
+                imagen.Dispose();
+                imagen = null;
+                imagenproducto.Image = bmimagen;
+            }
+            catch
+            {
 
+            }
+            finally
+            {
+            }
 
 
         }
@@ -145,16 +164,11 @@ namespace WindowsFormsApp1
                     con.Open();
                     OleDbCommand cmdborrar = new OleDbCommand(comando, con);
                     cmdborrar.ExecuteNonQuery();
-                    Cajas.Clear();
-                    Obtener_ubicacion_producto(Cajas);
-                    dgvcajadelproducto.DataSource = null;
-                    dgvcajadelproducto.Rows.Clear();
-                    dgvcajadelproducto.DataSource = Cajas;
-
-                    dgvcajadelproducto.Columns[0].Visible = false;
+                    
 
                 }
             }
+
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -167,6 +181,13 @@ namespace WindowsFormsApp1
                     con.Close();
                 }
             }
+            Cajas.Clear();
+            Obtener_ubicacion_producto(Cajas);
+            dgvcajadelproducto.DataSource = null;
+            dgvcajadelproducto.Rows.Clear();
+            dgvcajadelproducto.DataSource = Cajas;
+
+            dgvcajadelproducto.Columns[0].Visible = false;
 
         }
 
@@ -194,7 +215,8 @@ namespace WindowsFormsApp1
             dgvcajadelproducto.DataSource = Cajas;
 
             dgvcajadelproducto.Columns[0].Visible = false;
-
+            
+           
 
         }
 
@@ -214,6 +236,28 @@ namespace WindowsFormsApp1
         {
             FRMconsultafactura frm = new FRMconsultafactura();
             frm.Show();
+        }
+
+        private void btnfoto_Click(object sender, EventArgs e)
+        {
+            string codproducto = dgvproductos.CurrentRow.Cells["Código"].Value.ToString();
+            OpenFileDialog foto= new OpenFileDialog();
+            foto.Filter = "Archivo JPG|*.jpg";
+            if (foto.ShowDialog() == DialogResult.OK)
+            {
+                string direccionfinal = direccionfotos + "\\" + codproducto+".jpg";
+                using(FileStream fs = File.Create(direccionfinal)) { }
+                File.Delete(direccionfinal);
+                
+                
+                File.Copy(foto.FileName, direccionfinal);
+                Image imagen = Image.FromFile(@"\\\\CAJA-PC\\c\\GPLUS1.0\\imagenes\\" + codproducto + ".jpg");
+                Bitmap bmimagen = new Bitmap(imagen);
+                imagen.Dispose();
+                imagen = null;
+                imagenproducto.Image = bmimagen;
+            }
+            
         }
     }
 }

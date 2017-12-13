@@ -47,9 +47,13 @@
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.facturasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.imagenproducto = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnfoto = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvproductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvcajadelproducto)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imagenproducto)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvproductos
@@ -179,7 +183,7 @@
             this.reportesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1134, 29);
+            this.menuStrip1.Size = new System.Drawing.Size(1138, 29);
             this.menuStrip1.TabIndex = 7;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -219,22 +223,53 @@
             // productosToolStripMenuItem
             // 
             this.productosToolStripMenuItem.Name = "productosToolStripMenuItem";
-            this.productosToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.productosToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
             this.productosToolStripMenuItem.Text = "Productos";
             this.productosToolStripMenuItem.Click += new System.EventHandler(this.productosToolStripMenuItem_Click);
             // 
             // facturasToolStripMenuItem
             // 
             this.facturasToolStripMenuItem.Name = "facturasToolStripMenuItem";
-            this.facturasToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.facturasToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
             this.facturasToolStripMenuItem.Text = "Facturas";
             this.facturasToolStripMenuItem.Click += new System.EventHandler(this.facturasToolStripMenuItem_Click);
+            // 
+            // imagenproducto
+            // 
+            this.imagenproducto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.imagenproducto.Location = new System.Drawing.Point(12, 519);
+            this.imagenproducto.Name = "imagenproducto";
+            this.imagenproducto.Size = new System.Drawing.Size(352, 232);
+            this.imagenproducto.TabIndex = 8;
+            this.imagenproducto.TabStop = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(385, 542);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(114, 13);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Cambiar o agregar foto";
+            // 
+            // btnfoto
+            // 
+            this.btnfoto.Location = new System.Drawing.Point(388, 572);
+            this.btnfoto.Name = "btnfoto";
+            this.btnfoto.Size = new System.Drawing.Size(90, 31);
+            this.btnfoto.TabIndex = 10;
+            this.btnfoto.Text = "Buscar";
+            this.btnfoto.UseVisualStyleBackColor = true;
+            this.btnfoto.Click += new System.EventHandler(this.btnfoto_Click);
             // 
             // FRMproductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1134, 699);
+            this.ClientSize = new System.Drawing.Size(1138, 781);
+            this.Controls.Add(this.btnfoto);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.imagenproducto);
             this.Controls.Add(this.cmbfiltro);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -252,6 +287,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvcajadelproducto)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imagenproducto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -273,5 +309,8 @@
         private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem productosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem facturasToolStripMenuItem;
+        private System.Windows.Forms.PictureBox imagenproducto;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnfoto;
     }
 }

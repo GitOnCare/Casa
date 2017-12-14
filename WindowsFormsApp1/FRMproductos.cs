@@ -259,5 +259,10 @@ namespace WindowsFormsApp1
             }
             
         }
+
+        private void imagenproducto_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

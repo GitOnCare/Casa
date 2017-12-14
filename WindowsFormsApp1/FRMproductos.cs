@@ -104,6 +104,18 @@ namespace WindowsFormsApp1
             string codproducto = dgvproductos.CurrentRow.Cells["Código"].Value.ToString();
             try
             {
+                string buscartramo = "Select ubicacion,tramo from productos where cod_producto='" + codproducto + "'";
+                OleDbConnection con2 = new OleDbConnection(strconection);
+                OleDbCommand comandobuscartramo = new OleDbCommand(buscartramo);
+                con2.Open();
+                comandobuscartramo.CommandType = CommandType.Text;
+                OleDbDataReader dr = comandobuscartramo.ExecuteReader();
+                if (dr.Read())
+                {
+                    txttramo1.Text = dr.GetValue(0).ToString();
+                    txttramo2.Text = dr.GetValue(1).ToString();
+                }
+                con2.Close();
                 Image imagen= Image.FromFile(@"\\\\CAJA-PC\\c\\GPLUS1.0\\imagenes\\" + codproducto + ".jpg");
                 Bitmap bmimagen = new Bitmap(imagen);
                 imagen.Dispose();
@@ -263,6 +275,60 @@ namespace WindowsFormsApp1
         private void imagenproducto_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void dgvproductos_KeyUp(object sender, KeyEventArgs e)
+        {
+            dgvcajadelproducto.DataSource = null;
+            dgvcajadelproducto.Rows.Clear();
+            Cajas.Clear();
+            Obtener_ubicacion_producto(Cajas);
+            dgvcajadelproducto.DataSource = Cajas;
+            dgvcajadelproducto.Columns[0].Visible = false;
+            imagenproducto.Image = null;
+            string codproducto = dgvproductos.CurrentRow.Cells["Código"].Value.ToString();
+            try
+            {
+                Image imagen = Image.FromFile(@"\\\\CAJA-PC\\c\\GPLUS1.0\\imagenes\\" + codproducto + ".jpg");
+                Bitmap bmimagen = new Bitmap(imagen);
+                imagen.Dispose();
+                imagen = null;
+                imagenproducto.Image = bmimagen;
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+            }
+        }
+
+        private void dgvproductos_KeyDown(object sender, KeyEventArgs e)
+        {
+            dgvcajadelproducto.DataSource = null;
+            dgvcajadelproducto.Rows.Clear();
+            Cajas.Clear();
+            Obtener_ubicacion_producto(Cajas);
+            dgvcajadelproducto.DataSource = Cajas;
+            dgvcajadelproducto.Columns[0].Visible = false;
+            imagenproducto.Image = null;
+            string codproducto = dgvproductos.CurrentRow.Cells["Código"].Value.ToString();
+            try
+            {
+                Image imagen = Image.FromFile(@"\\\\CAJA-PC\\c\\GPLUS1.0\\imagenes\\" + codproducto + ".jpg");
+                Bitmap bmimagen = new Bitmap(imagen);
+                imagen.Dispose();
+                imagen = null;
+                imagenproducto.Image = bmimagen;
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+            }
         }
     }
 }

@@ -104,9 +104,9 @@ namespace WindowsFormsApp1
             string codproducto = dgvproductos.CurrentRow.Cells["Código"].Value.ToString();
             try
             {
-                string buscartramo = "Select ubicacion,tramo from productos where cod_producto='" + codproducto + "'";
+                string buscartramo = "Select productos.ubicacion,productos.tramo from productos where cod_producto='" + codproducto + "'";
                 OleDbConnection con2 = new OleDbConnection(strconection);
-                OleDbCommand comandobuscartramo = new OleDbCommand(buscartramo);
+                OleDbCommand comandobuscartramo = new OleDbCommand(buscartramo,con2);
                 con2.Open();
                 comandobuscartramo.CommandType = CommandType.Text;
                 OleDbDataReader dr = comandobuscartramo.ExecuteReader();
@@ -289,6 +289,18 @@ namespace WindowsFormsApp1
             string codproducto = dgvproductos.CurrentRow.Cells["Código"].Value.ToString();
             try
             {
+                string buscartramo = "Select productos.ubicacion,productos.tramo from productos where cod_producto='" + codproducto + "'";
+                OleDbConnection con2 = new OleDbConnection(strconection);
+                OleDbCommand comandobuscartramo = new OleDbCommand(buscartramo, con2);
+                con2.Open();
+                comandobuscartramo.CommandType = CommandType.Text;
+                OleDbDataReader dr = comandobuscartramo.ExecuteReader();
+                if (dr.Read())
+                {
+                    txttramo1.Text = dr.GetValue(0).ToString();
+                    txttramo2.Text = dr.GetValue(1).ToString();
+                }
+                con2.Close();
                 Image imagen = Image.FromFile(@"\\\\CAJA-PC\\c\\GPLUS1.0\\imagenes\\" + codproducto + ".jpg");
                 Bitmap bmimagen = new Bitmap(imagen);
                 imagen.Dispose();
@@ -316,6 +328,18 @@ namespace WindowsFormsApp1
             string codproducto = dgvproductos.CurrentRow.Cells["Código"].Value.ToString();
             try
             {
+                string buscartramo = "Select productos.ubicacion,productos.tramo from productos where cod_producto='" + codproducto + "'";
+                OleDbConnection con2 = new OleDbConnection(strconection);
+                OleDbCommand comandobuscartramo = new OleDbCommand(buscartramo, con2);
+                con2.Open();
+                comandobuscartramo.CommandType = CommandType.Text;
+                OleDbDataReader dr = comandobuscartramo.ExecuteReader();
+                if (dr.Read())
+                {
+                    txttramo1.Text = dr.GetValue(0).ToString();
+                    txttramo2.Text = dr.GetValue(1).ToString();
+                }
+                con2.Close();
                 Image imagen = Image.FromFile(@"\\\\CAJA-PC\\c\\GPLUS1.0\\imagenes\\" + codproducto + ".jpg");
                 Bitmap bmimagen = new Bitmap(imagen);
                 imagen.Dispose();
@@ -328,6 +352,54 @@ namespace WindowsFormsApp1
             }
             finally
             {
+            }
+        }
+
+        private void txttramo1_Click(object sender, EventArgs e)
+        {
+            txttramo1.SelectAll();
+        }
+
+        private void txttramo2_Click(object sender, EventArgs e)
+        {
+            txttramo2.SelectAll();
+        }
+
+        private void btnmodificartramo_Click(object sender, EventArgs e)
+        {
+            string codproducto = dgvproductos.CurrentRow.Cells["Código"].Value.ToString();
+
+            string actualizar = "Update productos Set ubicacion='"+txttramo1.Text+"',tramo='"+txttramo2.Text+"' where cod_producto='"+codproducto+"'";
+            OleDbConnection con2 = new OleDbConnection(strconection);
+
+            try
+            {
+                OleDbCommand cmdactualizar = new OleDbCommand(actualizar,con2);
+                con2.Open();
+                cmdactualizar.CommandType = CommandType.Text;
+                cmdactualizar.ExecuteNonQuery();
+                string buscartramo = "Select productos.ubicacion,productos.tramo from productos where cod_producto='" + codproducto + "'";
+                OleDbCommand comandobuscartramo = new OleDbCommand(buscartramo, con2);
+                comandobuscartramo.CommandType = CommandType.Text;
+                OleDbDataReader dr = comandobuscartramo.ExecuteReader();
+                
+                if (dr.Read())
+                {
+                    txttramo1.Text = dr.GetValue(0).ToString();
+                    txttramo2.Text = dr.GetValue(1).ToString();
+                }
+                con2.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (con2.State != ConnectionState.Closed)
+                {
+                    con2.Close();
+                }
             }
         }
     }

@@ -52,8 +52,8 @@
             this.txttramo1 = new System.Windows.Forms.MaskedTextBox();
             this.txttramo2 = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnmodificartramo = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvproductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvcajadelproducto)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -272,6 +272,7 @@
             this.txttramo1.PromptChar = ' ';
             this.txttramo1.Size = new System.Drawing.Size(100, 26);
             this.txttramo1.TabIndex = 0;
+            this.txttramo1.Click += new System.EventHandler(this.txttramo1_Click);
             // 
             // txttramo2
             // 
@@ -283,10 +284,11 @@
             this.txttramo2.PromptChar = ' ';
             this.txttramo2.Size = new System.Drawing.Size(100, 26);
             this.txttramo2.TabIndex = 1;
+            this.txttramo2.Click += new System.EventHandler(this.txttramo2_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.btnmodificartramo);
             this.groupBox1.Controls.Add(this.txttramo2);
             this.groupBox1.Controls.Add(this.txttramo1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -296,6 +298,16 @@
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tramos y gabetas";
+            // 
+            // btnmodificartramo
+            // 
+            this.btnmodificartramo.Location = new System.Drawing.Point(157, 66);
+            this.btnmodificartramo.Name = "btnmodificartramo";
+            this.btnmodificartramo.Size = new System.Drawing.Size(75, 36);
+            this.btnmodificartramo.TabIndex = 2;
+            this.btnmodificartramo.Text = "Modificar";
+            this.btnmodificartramo.UseVisualStyleBackColor = true;
+            this.btnmodificartramo.Click += new System.EventHandler(this.btnmodificartramo_Click);
             // 
             // groupBox2
             // 
@@ -308,15 +320,6 @@
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Imagen del producto";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(157, 66);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 36);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Modificar";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // FRMproductos
             // 
@@ -373,6 +376,6 @@
         private System.Windows.Forms.MaskedTextBox txttramo2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnmodificartramo;
     }
 }

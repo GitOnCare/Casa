@@ -133,5 +133,37 @@ namespace WindowsFormsApp1
                 }
             }
         }
+
+        private void dgvcajas_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                OleDbConnection con = new OleDbConnection(strconection);
+                string cod_producto = txtcodigoproducto.Text;
+                int id_caja = Convert.ToInt16(dgvcajas.CurrentRow.Cells["id_caja"].Value.ToString());
+                int id_ubicacion = Convert.ToInt16(dgvcajas.CurrentRow.Cells["id_ubicacion"].Value.ToString());
+                try
+                {
+                    string insertar = "Insert into relacioncp Values (" + id_caja + ",'" + cod_producto + "'," + id_ubicacion + ")";
+                    con.Open();
+                    OleDbCommand cmdinsertar = new OleDbCommand(insertar, con);
+                    cmdinsertar.ExecuteNonQuery();
+                    con.Close();
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    MessageBox.Show("Verifique la conexión");
+                }
+                finally
+                {
+                    if (con.State != ConnectionState.Closed)
+                    {
+                        con.Close();
+                    }
+                }
+            }
+        }
     }
 }

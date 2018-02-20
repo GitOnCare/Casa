@@ -86,6 +86,7 @@
             this.dgvcajas.Size = new System.Drawing.Size(365, 269);
             this.dgvcajas.TabIndex = 2;
             this.dgvcajas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvcajas_CellDoubleClick);
+            this.dgvcajas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgvcajas_KeyPress);
             // 
             // txtcaja
             // 
